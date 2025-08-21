@@ -69,6 +69,7 @@ CREATE TABLE IF NOT EXISTS article (
     priority ENUM('low', 'medium', 'high') DEFAULT 'medium'
 );
 ```
+---
 
 ## Additional Features
 
