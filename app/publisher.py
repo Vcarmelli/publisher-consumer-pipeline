@@ -11,7 +11,6 @@ class Publisher:
         self.client = get_redis_client()
         self.queue = os.getenv("QUEUE_NAME", "articles_queue")
 
-
     def publish_articles(self, json_file):
         # Load JSON file
         with open(json_file, "r", encoding="utf-8") as f:

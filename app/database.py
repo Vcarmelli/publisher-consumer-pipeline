@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 class Database:
     def __init__(self):
+        load_dotenv()
         self.connected = False
         
         self.db_host = os.getenv("MYSQL_HOST", "localhost")
@@ -24,8 +25,6 @@ class Database:
         cursor.execute("CREATE DATABASE IF NOT EXISTS consumer_articles")
 
     def connect(self):
-        load_dotenv()
-
         if self.connected:
             return
 
@@ -37,7 +36,7 @@ class Database:
         )
         self.connected = True
         self.create_table()
-        print(f"Connected to database {self.db.database} successfully.\n")
+        #print(f"Connected to database {self.db.database} successfully.\n")
 
     def create_table(self):
         try:

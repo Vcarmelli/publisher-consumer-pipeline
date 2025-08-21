@@ -25,9 +25,7 @@ def summarize_article(content) -> str:
 
         result = client.summarization(content[:3500], model="facebook/bart-large-cnn") # limit to 3500 characters
         print(f"\nSUMMARY: {result.summary_text}")
-
         return result.summary_text
-
     except Exception as e:
         print(f"Summarization failed: {e}")
 

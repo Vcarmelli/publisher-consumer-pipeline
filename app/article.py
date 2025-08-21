@@ -7,7 +7,6 @@ class Article:
             self.db_manager.connect()
 
     def is_duplicate(self, url):
-
         try:
             cursor = self.db_manager.db.cursor()
             query = "SELECT COUNT(*) FROM article WHERE url = %s"

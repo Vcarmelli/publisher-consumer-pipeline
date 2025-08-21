@@ -14,7 +14,6 @@ class Consumer:
         self.client = get_redis_client()
         self.queue = os.getenv("QUEUE_NAME", "articles_queue")
 
-
     def pop_task(self) -> dict:
         article_data = self.client.lpop(self.queue)
         if not article_data:
@@ -72,11 +71,9 @@ class Consumer:
 
 if __name__ == "__main__":
     consumer = Consumer()
-    
     database = Database()
     database.connect()
 
-    #while True:
     task = consumer.pop_task()
     if not task:
         print("No more tasks in the queue.")
@@ -97,4 +94,3 @@ if __name__ == "__main__":
         priority=task["priority"]
     )
     database.close()
-    #input("\nContinue to next article...\n")
